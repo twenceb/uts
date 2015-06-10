@@ -1,0 +1,23 @@
+.TopPanel{
+    
+}
+
+.SectionPanel{
+    
+}
+
+.SavePanel{
+    
+}
+
+.SectionDescription{
+    font-style: italic;
+}
+
+.PanelGridNo tr{
+    border: none !important;
+}
+
+.PanelGridNo td {
+    border: none !important;
+}

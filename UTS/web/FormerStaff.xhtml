@@ -1,0 +1,547 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <title>Former Staff</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="QUESTIONNAIRE FOR FORMER STAFF OF URA"/></h1>
+                <p:messages closable="true"/>
+                <p:panel styleClass="TopPanel">
+                    <p:panel header="SECTION A: RESPONDENT’S PROFILE" styleClass="SectionPanel">
+                        <p:panelGrid columns="4" styleClass="PanelGridNo">
+                            <p:outputLabel value="1. Name (Optional):" for="rname" />
+                            <p:inputText id="rname" value="#{survey_responseBean.survey_response.rname}" title="Rname" maxlength="50" />
+                            <p:outputLabel value="2. Gender:" for="gender" />
+                            <p:selectOneRadio id="gender" value="#{survey_responseBean.survey_response.gender}" required="true" requiredMessage="Gender Needed">
+                                <f:selectItem itemLabel="Male" itemValue="M"/>
+                                <f:selectItem itemLabel="Female" itemValue="F"/>
+                            </p:selectOneRadio>
+                            <p:outputLabel value="3. Age:" for="agerange" />
+                            <p:selectOneRadio id="agerange" value="#{survey_responseBean.survey_response.agerange}" required="true" requiredMessage="Age Needed">
+                                <f:selectItem itemLabel="20-35 years" itemValue="1"/>
+                                <f:selectItem itemLabel="36-45 years" itemValue="2"/>
+                                <f:selectItem itemLabel="46-55 years" itemValue="3"/>
+                                <f:selectItem itemLabel="56 years and above" itemValue="4"/>
+                            </p:selectOneRadio>
+                            <p:outputLabel value="Entityn:" for="entityn" rendered="false" />
+                            <p:inputText id="entityn" value="#{survey_responseBean.survey_response.entityn}" title="Entityn" rendered="false" />
+                            <p:outputLabel value="Entityt:" for="entityt" rendered="false" />
+                            <p:inputText id="entityt" value="#{survey_responseBean.survey_response.entityt}" title="Entityt" rendered="false" />
+                            <p:outputLabel value="Entityto:" for="entityto" rendered="false" />
+                            <p:inputText id="entityto" value="#{survey_responseBean.survey_response.entityto}" title="Entityto" rendered="false" />
+                            <p:outputLabel value="4. Total number of years served in URA:" for="tyears" />
+                            <p:inputText id="tyears" value="#{survey_responseBean.survey_response.tyears}" title="Tyears" />
+                            <p:outputLabel value="5. Year of departure from URA:" for="dyear" />
+                            <p:inputText id="dyear" value="#{survey_responseBean.survey_response.dyear}" title="Dyear" required="true" requiredMessage="Departure Year Needed" />
+                            <p:outputLabel value="Cyear:" for="cyear" rendered="false" />
+                            <p:inputText id="cyear" value="#{survey_responseBean.survey_response.cyear}" title="Cyear" rendered="false" />
+                            <p:outputLabel value="6. Rank at time of departure from URA:" for="rank" />
+                            <p:selectOneMenu id="rank" value="#{survey_responseBean.survey_response.rank}" required="true" requiredMessage="Rank Needed">
+                                <f:selectItem itemLabel="" itemValue=""/>
+                                <f:selectItem itemLabel="Commissioner General" itemValue="CG"/>
+                                <f:selectItem itemLabel="Commissioner" itemValue="COM"/>
+                                <f:selectItem itemLabel="Assistant Commissioner" itemValue="AC"/>
+                                <f:selectItem itemLabel="Manager" itemValue="MGR"/>
+                                <f:selectItem itemLabel="Supervisor" itemValue="SUP"/>
+                                <f:selectItem itemLabel="Officer" itemValue="OFF"/>
+                                <f:selectItem itemLabel="Support Staff" itemValue="SS"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="7. Work Department at time of departure from URA:" for="department" />
+                            <p:selectOneMenu id="department" value="#{survey_responseBean.survey_response.department}" required="true" requiredMessage="Department Needed">
+                                <f:selectItem itemLabel="" itemValue=""/>
+                                <f:selectItem itemLabel="Customs Department" itemValue="CD"/>
+                                <f:selectItem itemLabel="Tax Investigations Department" itemValue="TID"/>
+                                <f:selectItem itemLabel="Corporate Services Department" itemValue="CSD"/>
+                                <f:selectItem itemLabel="Legal Services and Board Affairs Department" itemValue="LSB"/>
+                                <f:selectItem itemLabel="Domestic Taxes Department" itemValue="DT"/>
+                                <f:selectItem itemLabel="Internal Audit and Compliance Department" itemValue="IAC"/>
+                                <f:selectItem itemLabel="Commissioner Generals Office" itemValue="CGO"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Rship:" for="rship" rendered="false" />
+                            <p:inputText id="rship" value="#{survey_responseBean.survey_response.rship}" title="Rship" rendered="false" />
+                            <p:outputLabel value="Rshipother:" for="rshipother" rendered="false" />
+                            <p:inputText id="rshipother" value="#{survey_responseBean.survey_response.rshipother}" title="Rshipother" rendered="false" />
+                        </p:panelGrid>
+                    </p:panel>
+                    <p:panel header="SECTION B: AWARENESS ABOUT THE TAX REFORMS IN URA" styleClass="SectionPanel">
+                        <p:outputLabel styleClass="SectionDescription" value="Questions 8-13 below seek to get your opinion about the objectives, composition and outcomes of reforms implemented in URA between 2004 and 2014."/>
+                        <p:panelGrid columns="2" styleClass="PanelGridNo">
+                            <p:outputLabel value="8. Are you aware about the reforms that were implemented in URA between 2004 and 2014? Tick the appropriate answer. (Examples include: automation of processes, tax policy reforms, organizational restructuring, etc.):" for="aware1" />
+                            <p:selectOneRadio id="aware1" value="#{survey_responseBean.survey_response.aware1}" required="true" requiredMessage="Awareness Needed">
+                                <f:selectItem itemLabel="Yes" itemValue="1"/>
+                                <f:selectItem itemLabel="No" itemValue="0"/>
+                            </p:selectOneRadio>
+                            <p:outputLabel value="9. If Yes, mention the key reforms you know.:" for="aware2" />
+                            <p:inputTextarea id="aware2" value="#{survey_responseBean.survey_response.aware2}" title="Aware2" cols="80" maxlength="250" />
+                            <p:outputLabel value="10. Are you aware of the intended objectives of these reforms?:" for="aware3" />
+                            <p:selectOneRadio id="aware3" value="#{survey_responseBean.survey_response.aware3}" required="true" requiredMessage="Awareness Needed">
+                                <f:selectItem itemLabel="Yes" itemValue="1"/>
+                                <f:selectItem itemLabel="No" itemValue="0"/>
+                            </p:selectOneRadio>
+                            <p:outputLabel value="11. If Yes, please mention the objectives. If No, go to Question No. 13:" for="aware4" />
+                            <p:inputTextarea id="aware4" value="#{survey_responseBean.survey_response.aware4}" title="Aware4" cols="80" maxlength="250" />
+                            <p:outputLabel value="12. In your opinion, to what extent were these objectives achieved? Tick the appropriate answer.:" for="aware5" />
+                            <p:selectOneMenu id="aware5" value="#{survey_responseBean.survey_response.aware5}">
+                                <f:selectItem itemLabel="" itemValue=""/>
+                                <f:selectItem itemLabel="Completely Achieved" itemValue="1"/>
+                                <f:selectItem itemLabel="Achieved to a large extent" itemValue="2"/>
+                                <f:selectItem itemLabel="Achieved half way" itemValue="3"/>
+                                <f:selectItem itemLabel="Achieved to a small extent" itemValue="4"/>
+                                <f:selectItem itemLabel="Not Achieved" itemValue="5"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="13. What were the outcomes of the reforms?:" for="aware6" />
+                            <p:inputTextarea id="aware6" value="#{survey_responseBean.survey_response.aware6}" title="Aware6" cols="80" maxlength="250" />
+                        </p:panelGrid>
+                    </p:panel>
+                    <p:panel header="SECTION C: SUCCESS FACTORS OF REFORMS IN URA" styleClass="SectionPanel">
+                        <p:outputLabel styleClass="SectionDescription" value="This section is meant to identify and elaborate on the key success factors for URA’s 2004-2014 reforms, and to rank them in order of magnitude of contribution to successful transformation of the Organisation."/>
+                        <p:panel header="Section C1: Leadership">
+                            <p:outputLabel value="14.In your assessment of good leadership as a factor that could have contributed to success of the 2004-2014 URA reforms, please give your opinion on each of the following attributes, grading each in one of the following categories:  Strongly Agree, Agree, Uncertain, Disagree or Strongly Disagree. Please tick the appropriate box and where applicable, give a reason for your grading. Use the space after the table to fill in applicable reasons if any."/>
+                            <p:panelGrid columns="3" styleClass="PanelGridYes">
+                                <p:outputLabel value="SN"/>
+                                <p:outputLabel value="Attribute"/>
+                                <p:outputLabel value="Grading"/>
+                                <p:outputLabel value="A."/>
+                                <p:outputLabel value="Overhauling of leadership in 2004 contributed significantly to the transformation of URA:" for="lead1" />
+                                <p:selectOneRadio id="lead1" value="#{survey_responseBean.survey_response.lead1}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="B."/>
+                                <p:outputLabel value="The new leadership team had strong commitment to positive change :" for="lead2" />
+                                <p:selectOneRadio id="lead2" value="#{survey_responseBean.survey_response.lead2}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="C."/>
+                                <p:outputLabel value="The new leaders made no compromise on corruption. :" for="lead3" />
+                                <p:selectOneRadio id="lead3" value="#{survey_responseBean.survey_response.lead3}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="D."/>
+                                <p:outputLabel value="The leadership team led staff retrenchment with utmost transparency :" for="lead4" />
+                                <p:selectOneRadio id="lead4" value="#{survey_responseBean.survey_response.lead4}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="E."/>
+                                <p:outputLabel value="The new leadership created trust with staff :" for="lead5" />
+                                <p:selectOneRadio id="lead5" value="#{survey_responseBean.survey_response.lead5}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="F."/>
+                                <p:outputLabel value="The new leadership created trust with the public:" for="lead6" />
+                                <p:selectOneRadio id="lead6" value="#{survey_responseBean.survey_response.lead6}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="G."/>
+                                <p:outputLabel value="The senior management team was passionate about the transformation of URA:" for="lead7" />
+                                <p:selectOneRadio id="lead7" value="#{survey_responseBean.survey_response.lead7}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="H."/>
+                                <p:outputLabel value="Heads of Departments were empowered to take risks:" for="lead8" />
+                                <p:selectOneRadio id="lead8" value="#{survey_responseBean.survey_response.lead8}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="I."/>
+                                <p:outputLabel value="Leaders were flexible and released their teams to drive the change in different departments:" for="lead9" />
+                                <p:selectOneRadio id="lead9" value="#{survey_responseBean.survey_response.lead9}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="J."/>
+                                <p:outputLabel value="Leaders gave their teams a chance to contribute to the dream of a new URA:" for="lead10" />
+                                <p:selectOneRadio id="lead10" value="#{survey_responseBean.survey_response.lead10}" required="true" requiredMessage="Leadership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                            </p:panelGrid>
+                            <p:panelGrid columns="2" styleClass="PanelGridNo">
+                                <p:outputLabel value="Reasons for the grading above, if any:" for="lead11" />
+                                <p:inputTextarea id="lead11" value="#{survey_responseBean.survey_response.lead11}" title="Lead11" cols="80" maxlength="250" />
+                                <p:outputLabel value="15. Other than the attributes mentioned above, what other leadership qualities made the leadership team in the period 2004 - 2014 exceptional?:" for="lead12" />
+                                <p:inputTextarea id="lead12" value="#{survey_responseBean.survey_response.lead12}" title="Lead12" cols="80" maxlength="250" />
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel header="Section C2: Staff Motivation">
+                            <p:outputLabel value="16.In your assessment of staff motivation as a factor that could have contributed to success of the 2004-2014 URA reforms, please give your opinion on each of the following attributes, grading each in one of the following categories:  Strongly Agree, Agree, Uncertain, Disagree or Strongly Disagree. Please tick the appropriate box and where applicable, give a reason for your grading. Use the space after the table to fill in applicable reasons if any."/>
+                            <p:panelGrid columns="3" styleClass="PanelGridYes">
+                                <p:outputLabel value="SN"/>
+                                <p:outputLabel value="Attribute"/>
+                                <p:outputLabel value="Grading"/>
+                                <p:outputLabel value="A."/>
+                                <p:outputLabel value="Staff motivation was much greater in the period 2004-2014 compared to the period prior to 2004:" for="motiv1" />
+                                <p:selectOneRadio id="motiv1" value="#{survey_responseBean.survey_response.motiv1}" required="true" requiredMessage="Motivation Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="B."/>
+                                <p:outputLabel value="Improved staff motivation contributed significantly to the transformation of URA:" for="motiv2" />
+                                <p:selectOneRadio id="motiv2" value="#{survey_responseBean.survey_response.motiv2}" required="true" requiredMessage="Motivation Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="C."/>
+                                <p:outputLabel value="Staff’s productivity increased as a result of improved motivation:" for="motiv3" />
+                                <p:selectOneRadio id="motiv3" value="#{survey_responseBean.survey_response.motiv3}" required="true" requiredMessage="Motivation Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="D."/>
+                                <p:outputLabel value="Staff’s attitude towards work improved due to higher levels of motivation :" for="motiv4" />
+                                <p:selectOneRadio id="motiv4" value="#{survey_responseBean.survey_response.motiv4}" required="true" requiredMessage="Motivation Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="E."/>
+                                <p:outputLabel value="Staff became more committed to URA as a result of improved staff motivation :" for="motiv5" />
+                                <p:selectOneRadio id="motiv5" value="#{survey_responseBean.survey_response.motiv5}" required="true" requiredMessage="Motivation Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="F."/>
+                                <p:outputLabel value="Staff served clients better as a result of staff motivation:" for="motiv6" />
+                                <p:selectOneRadio id="motiv6" value="#{survey_responseBean.survey_response.motiv6}" required="true" requiredMessage="Motivation Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="G."/>
+                                <p:outputLabel value="Corruption among staff reduced as a result of better salary and benefits :" for="motiv7" />
+                                <p:selectOneRadio id="motiv7" value="#{survey_responseBean.survey_response.motiv7}" required="true" requiredMessage="Motivation Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="H."/>
+                                <p:outputLabel value="New welfare schemes such as life insurance, staff savings schemes, Retirement Benefits Scheme, performance rewards and staff lunch motivated staff to work better.:" for="motiv8" />
+                                <p:selectOneRadio id="motiv8" value="#{survey_responseBean.survey_response.motiv8}" required="true" requiredMessage="Motivation Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                            </p:panelGrid>
+                            <p:panelGrid columns="2" styleClass="PanelGridNo">
+                                <p:outputLabel value="Reasons for the grading above, if any:" for="motiv9" />
+                                <p:inputTextarea id="motiv9" value="#{survey_responseBean.survey_response.motiv9}" title="Motiv9" cols="80" maxlength="250" />
+                                <p:outputLabel value="17. Besides the causes mentioned above, what other initiatives contributed to improving staff motivation between 2004 and 2014?:" for="motiv10" />
+                                <p:inputTextarea id="motiv10" value="#{survey_responseBean.survey_response.motiv10}" title="Lead12" cols="80" maxlength="250" />
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel header="Section C2: Staff’s Service Improvement" rendered="false">
+                            <p:outputLabel value="Service1:" for="service1" />
+                            <p:inputText id="service1" value="#{survey_responseBean.survey_response.service1}" title="Service1" />
+                            <p:outputLabel value="Service2:" for="service2" />
+                            <p:inputText id="service2" value="#{survey_responseBean.survey_response.service2}" title="Service2" />
+                            <p:outputLabel value="Service3:" for="service3" />
+                            <p:inputText id="service3" value="#{survey_responseBean.survey_response.service3}" title="Service3" />
+                            <p:outputLabel value="Service4:" for="service4" />
+                            <p:inputText id="service4" value="#{survey_responseBean.survey_response.service4}" title="Service4" />
+                            <p:outputLabel value="Service5:" for="service5" />
+                            <p:inputText id="service5" value="#{survey_responseBean.survey_response.service5}" title="Service5" />
+                            <p:outputLabel value="Service6:" for="service6" />
+                            <p:inputText id="service6" value="#{survey_responseBean.survey_response.service6}" title="Service6" />
+                            <p:outputLabel value="Service7:" for="service7" />
+                            <p:inputText id="service7" value="#{survey_responseBean.survey_response.service7}" title="Service7" />
+                            <p:outputLabel value="Service8:" for="service8" />
+                            <p:inputText id="service8" value="#{survey_responseBean.survey_response.service8}" title="Service8" />
+                        </p:panel>                  
+                        <p:panel header="Section C3: Exposure to Best Practices">
+                            <p:outputLabel value="18.In your assessment of exposure to best practices as a factor that could have contributed to success of the 2004-2014 URA reforms, please give your opinion on each of the following attributes, grading each in one of the following categories:  Strongly Agree, Agree, Uncertain, Disagree or Strongly Disagree. Please tick the appropriate box and where applicable, give a reason for your grading. Use the space after the table to fill in applicable reasons if any."/>
+                            <p:panelGrid columns="3" styleClass="PanelGridYes">
+                                <p:outputLabel value="SN"/>
+                                <p:outputLabel value="Attribute"/>
+                                <p:outputLabel value="Grading"/>
+                                <p:outputLabel value="A."/>
+                                <p:outputLabel value="The team that spearheaded transformation (the modernization team) was given sufficient exposure to best practices" for="expose1" />
+                                <p:selectOneRadio id="expose1" value="#{survey_responseBean.survey_response.expose1}" required="true" requiredMessage="Section C3: Exposure Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="B."/>
+                                <p:outputLabel value=" Exposing the modernization team to best practices greatly contributed to the success of the 2004-2014 URA reforms :" for="expose2" />
+                                <p:selectOneRadio id="expose2" value="#{survey_responseBean.survey_response.expose2}" required="true" requiredMessage="Section C3: Exposure Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="C."/>
+                                <p:outputLabel value="Ideas proposed by the equipped modernization team were given due attention:" for="expose3" />
+                                <p:selectOneRadio id="expose3" value="#{survey_responseBean.survey_response.expose3}" required="true" requiredMessage="Section C3: Exposure Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="D."/>
+                                <p:outputLabel value="Resources were made readily available for innovation:" for="expose4" />
+                                <p:selectOneRadio id="expose4" value="#{survey_responseBean.survey_response.expose4}" required="true" requiredMessage="Section C3: Exposure Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="E."/>
+                                <p:outputLabel value="Knowledge acquired by the modernization team from leading institutions world-wide empowered them to enrich the reforms:" for="expose5" />
+                                <p:selectOneRadio id="expose5" value="#{survey_responseBean.survey_response.expose5}" required="true" requiredMessage="Section C3: Exposure Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="F."/>
+                                <p:outputLabel value="The modernization team built systems that transformed the way business was done, giving value to taxpayers:" for="expose6" />
+                                <p:selectOneRadio id="expose6" value="#{survey_responseBean.survey_response.expose6}" required="true" requiredMessage="Section C3: Exposure Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                            </p:panelGrid>
+                            <p:panelGrid columns="2" styleClass="PanelGridNo">
+                                <p:outputLabel value="Reasons for the grading above, if any:" for="expose7" />
+                                <p:inputTextarea id="expose7" value="#{survey_responseBean.survey_response.expose7}" title="expose7" cols="80" maxlength="250" />
+                                <p:outputLabel value="19. Besides the aspects mentioned above, how else did exposure of the modernization team to best practices contribute to the transformation of URA?" for="expose8" />
+                                <p:inputTextarea id="expose8" value="#{survey_responseBean.survey_response.expose8}" title="expose8" cols="80" maxlength="250" />
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel header="Section C4: Strategic Partnerships">
+                            <p:outputLabel value="20.In your assessment of strategic partnerships as a factor that could have contributed to success of the 2004-2014 URA reforms, please give your opinion on each of the following attributes, grading each in one of the following categories:  Strongly Agree, Agree, Uncertain, Disagree."/>
+                            <p:panelGrid columns="3" styleClass="PanelGridYes">
+                                <p:outputLabel value="SN"/>
+                                <p:outputLabel value="Attribute"/>
+                                <p:outputLabel value="Grading"/>
+                                <p:outputLabel value="A."/>
+                                <p:outputLabel value="Strategic partnerships were significantly increased and improved in URA after 2004" for="parter1" />
+                                <p:selectOneRadio id="parter1" value="#{survey_responseBean.survey_response.parter1}" required="true" requiredMessage="Section C4: Partnership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="B."/>
+                                <p:outputLabel value="Better strategic partnerships significantly contributed to the transformation of URA between 2004 and 2014:" for="parter2" />
+                                <p:selectOneRadio id="parter2" value="#{survey_responseBean.survey_response.parter2}" required="true" requiredMessage="Section C4: Partnership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="C."/>
+                                <p:outputLabel value="The stakeholders with whom URA built strategic partnerships were relevant to improvement of URA business:" for="parter3" />
+                                <p:selectOneRadio id="parter3" value="#{survey_responseBean.survey_response.parter3}" required="true" requiredMessage="Section C4: Partnership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="D."/>
+                                <p:outputLabel value="Communication channels such as radio, newspapers, television, press briefings, tax clinics, workshops, taxpayer visits, among others, contributed to improvement of URA’s relationship with its stakeholders:" for="parter4" />
+                                <p:selectOneRadio id="parter4" value="#{survey_responseBean.survey_response.parter4}" required="true" requiredMessage="Section C4: Partnership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="E."/>
+                                <p:outputLabel value="Recognition and awarding of compliant taxpayers contributed to improving of URA’s relationship with its clients:" for="parter5" />
+                                <p:selectOneRadio id="parter5" value="#{survey_responseBean.survey_response.parter5}" required="true" requiredMessage="Section C4: Partnership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="F."/>
+                                <p:outputLabel value="Corporate social responsibility exposed URA to the public and built expectations that URA worked to meet:" for="parter6" />
+                                <p:selectOneRadio id="parter6" value="#{survey_responseBean.survey_response.parter6}" required="true" requiredMessage="Section C4: Partnership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="G."/>
+                                <p:outputLabel value="The partnerships URA built improved the public image of the Organisation:" for="parter7" />
+                                <p:selectOneRadio id="parter7" value="#{survey_responseBean.survey_response.parter7}" required="true" requiredMessage="Section C4: Partnership Needed">
+                                    <f:selectItem itemLabel="Strongly Agree" itemValue="1"/>
+                                    <f:selectItem itemLabel="Agree" itemValue="2"/>
+                                    <f:selectItem itemLabel="Uncertain" itemValue="3"/>
+                                    <f:selectItem itemLabel="Disagree" itemValue="4"/>
+                                    <f:selectItem itemLabel="Strongly Disagree" itemValue="5"/>
+                                </p:selectOneRadio>
+                            </p:panelGrid>
+                            <p:panelGrid columns="2" styleClass="PanelGridNo">
+                                <p:outputLabel value="Reasons for the grading above, if any:" for="parter8" />
+                                <p:inputTextarea id="parter8" value="#{survey_responseBean.survey_response.parter8}" title="parter8" cols="80" maxlength="250" />
+                                <p:outputLabel value="21. Please mention the key partnerships/ stakeholders with whom URA partnered that contributed to transformation of URA. (Examples could be media houses, government institutions, development partners, taxpayers)" for="parter9" />
+                                <p:inputTextarea id="parter9" value="#{survey_responseBean.survey_response.parter9}" title="parter9" cols="80" maxlength="250" />
+                                <p:outputLabel value="22. Please mention ways in which these partners contributed to the successful transformation of URA. (e.g. offered financial/ technical assistance, became an advocate for the URA to the public, etc.)" for="parter10" />
+                                <p:inputTextarea id="parter10" value="#{survey_responseBean.survey_response.parter10}" title="parter10" cols="80" maxlength="250" />
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panel header="Section C5: Ranking Success Factors">
+                            <p:panelGrid columns="2" styleClass="PanelGridNo">
+                                <p:outputLabel value="23. Besides the four factors mentioned above (good leadership, staff motivation, exposure to best practices and strategic partnerships), mention other key factors that significantly contributed to successful transformation of URA between 2004 and 2014:" for="rankfact1" />
+                                <p:inputTextarea id="rankfact1" value="#{survey_responseBean.survey_response.rankfact1}" title="Rankfact1" cols="80" maxlength="250" />
+                            </p:panelGrid>
+                            <p:outputLabel value="24. Please assign ranks 1-5 to the factors below in order of magnitude of contribution to successful transformation of URA, where 1 represents the biggest contribution and 5 the least contribution. Please tick the appropriate box."/>
+                            <p:panelGrid columns="2" styleClass="PanelGridYes">
+                                <p:outputLabel value="Success Factors"/>
+                                <p:outputLabel value="Ranking"/>
+                                <p:outputLabel value="A. Good leadership and management" for="rankfact2" />
+                                <p:selectOneRadio id="rankfact2" value="#{survey_responseBean.survey_response.rankfact2}" required="true" requiredMessage="Section C5: Success Factor Needed">
+                                    <f:selectItem itemLabel="1-Biggest contribution" itemValue="1"/>
+                                    <f:selectItem itemLabel="2-" itemValue="2"/>
+                                    <f:selectItem itemLabel="3-" itemValue="3"/>
+                                    <f:selectItem itemLabel="4-" itemValue="4"/>
+                                    <f:selectItem itemLabel="5-Least Contribution" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="B. Staff motivation" for="rankfact3" />
+                                <p:selectOneRadio id="rankfact3" value="#{survey_responseBean.survey_response.rankfact3}" required="true" requiredMessage="Section C5: Success Factor Needed">
+                                    <f:selectItem itemLabel="1-Biggest contribution" itemValue="1"/>
+                                    <f:selectItem itemLabel="2-" itemValue="2"/>
+                                    <f:selectItem itemLabel="3-" itemValue="3"/>
+                                    <f:selectItem itemLabel="4-" itemValue="4"/>
+                                    <f:selectItem itemLabel="5-Least Contribution" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="C. Exposure to best practices" for="rankfact4" />
+                                <p:selectOneRadio id="rankfact4" value="#{survey_responseBean.survey_response.rankfact4}" required="true" requiredMessage="Section C5: Success Factor Needed">
+                                    <f:selectItem itemLabel="1-Biggest contribution" itemValue="1"/>
+                                    <f:selectItem itemLabel="2-" itemValue="2"/>
+                                    <f:selectItem itemLabel="3-" itemValue="3"/>
+                                    <f:selectItem itemLabel="4-" itemValue="4"/>
+                                    <f:selectItem itemLabel="5-Least Contribution" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="D. Strategic partnerships" for="rankfact5" />
+                                <p:selectOneRadio id="rankfact5" value="#{survey_responseBean.survey_response.rankfact5}" required="true" requiredMessage="Section C5: Success Factor Needed">
+                                    <f:selectItem itemLabel="1-Biggest contribution" itemValue="1"/>
+                                    <f:selectItem itemLabel="2-" itemValue="2"/>
+                                    <f:selectItem itemLabel="3-" itemValue="3"/>
+                                    <f:selectItem itemLabel="4-" itemValue="4"/>
+                                    <f:selectItem itemLabel="5-Least Contribution" itemValue="5"/>
+                                </p:selectOneRadio>
+                                <p:outputLabel value="E. Other (if not ranked 5, please specify the success factor being referred to)"/>
+                                <p:outputLabel value=""/>
+                                <p:inputText value="#{survey_responseBean.survey_response.rankfact7}"/>
+                                <p:selectOneRadio id="rankfact6" value="#{survey_responseBean.survey_response.rankfact6}">
+                                    <f:selectItem itemLabel="1-Biggest contribution" itemValue="1"/>
+                                    <f:selectItem itemLabel="2-" itemValue="2"/>
+                                    <f:selectItem itemLabel="3-" itemValue="3"/>
+                                    <f:selectItem itemLabel="4-" itemValue="4"/>
+                                    <f:selectItem itemLabel="5-Least Contribution" itemValue="5"/>
+                                </p:selectOneRadio>
+                            </p:panelGrid>
+                        </p:panel>
+                    </p:panel>
+                    <p:panel header="SECTION D: WAY FORWARD" styleClass="SectionPanel">
+                        <p:outputLabel styleClass="SectionDescription" value="This section is intended to collect ideas that will be incorporated in recommendations to guide future implementation of reform programs for similar institutions." />
+                        <p:panelGrid columns="2" styleClass="PanelGridNo">
+                            <p:outputLabel value="25. In your opinion, is there need for further reforms in URA?:" for="wayf1" />
+                            <p:selectOneRadio id="wayf1" value="#{survey_responseBean.survey_response.wayf1}" required="true" requiredMessage="Section C5: Way Forward Needed">
+                                <f:selectItem itemLabel="Yes" itemValue="1"/>
+                                <f:selectItem itemLabel="No" itemValue="0"/>
+                            </p:selectOneRadio>
+                            <p:outputLabel value="26. If Yes, please mention the challenges that need to be addressed by the necessary reforms.:" for="wayf2" />
+                            <p:inputTextarea id="wayf2" value="#{survey_responseBean.survey_response.wayf2}" title="Wayf2" cols="80" maxlength="250" />
+                            <p:outputLabel value="27. Please suggest the reforms that would be necessary to alleviate the challenges listed above.:" for="wayf3" />
+                            <p:inputTextarea id="wayf3" value="#{survey_responseBean.survey_response.wayf3}" title="Wayf3" cols="80" maxlength="250" />
+                            <p:outputLabel value="28. What key factors do you think should be put into consideration to ensure success of future reforms in URA?:" for="wayf4" />
+                            <p:inputTextarea id="wayf4" value="#{survey_responseBean.survey_response.wayf4}" title="Wayf4" cols="80" maxlength="250" />
+                        </p:panelGrid>
+                    </p:panel>
+                </p:panel>
+                <p:panel  styleClass="SavePanel">
+                    <p:panelGrid columns="2" styleClass="PanelGridNo">
+                        <p:commandButton id="cmdbSave" value="SAVE AND CONTINUE" icon="ui-icon-disk" rendered="false">
+                            <p:ajax listener="#{survey_responseBean.save(2,1)}" process="@form" update="@form"/>
+                        </p:commandButton>
+                        <p:commandButton id="cmdbSubmit" value="SUBMIT THE SURVEY" icon="ui-icon-check">
+                            <p:ajax listener="#{survey_responseBean.save(2,2)}" process="@form" update="@form"/>
+                        </p:commandButton>
+                    </p:panelGrid>
+                </p:panel>
+                <p:messages closable="true"/>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
